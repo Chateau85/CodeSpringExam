@@ -20,9 +20,7 @@
 </body>
 </html>
 <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+        src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
 <script>
 $(document).ready(function () {
     var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
@@ -30,11 +28,11 @@ $(document).ready(function () {
 
     function checkExtension(fileName, fileSize) {
         if(fileSize >= maxSize) {
-            alert("파일 사이즈 초과");
+            alert("?뚯씪 ?ъ씠利?珥덇낵");
             return false;
         }
         if(regex.test(fileName)) {
-            alert("해당 종류의 파일은 업로드할 수 없습니다.");
+            alert("?대떦 醫낅쪟???뚯씪? ?낅줈?쒗븷 ???놁뒿?덈떎.");
             return false;
         }
         return true;
@@ -56,7 +54,7 @@ $(document).ready(function () {
             formData.append("uploadFile", files[i]);
         }
         $.ajax({
-            url: '/uploadAjaxAction',
+            url : '${pageContext.request.contextPath}/uploadAjaxAction',
                 processData: false,
                 contentType: false,
                 data: formData,
@@ -64,7 +62,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (result) {
                     // alert("Uploaded");
-                    console.log('오후 8:13', 'uploadAjax.jsp:64', result);
+                    console.log('?ㅽ썑 8:13', 'uploadAjax.jsp:64', result);
                     showUploadedFile(result);
                     $(".uploadDiv").html(cloneObj.html());
                 }
@@ -95,7 +93,7 @@ $(document).ready(function () {
     $(".uploadResult").on("click", "span", function (e) {
         var targetFile = $(this).data("file");
         var type = $(this).data("type");
-        // li 리스트를 제거하진 않음!!
+        // li 由ъ뒪?몃? ?쒓굅?섏쭊 ?딆쓬!!
         $.ajax({
             url: '/deleteFile',
             data: {fileName: targetFile, type: type},

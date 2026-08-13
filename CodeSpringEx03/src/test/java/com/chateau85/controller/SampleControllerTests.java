@@ -19,13 +19,13 @@ import com.chateau85.domain.Ticket;
 import com.google.gson.Gson;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
-@Log4j
+@Slf4j
 public class SampleControllerTests {
 	@Setter(onMethod_ = { @Autowired })
 	private WebApplicationContext ctx;
@@ -45,7 +45,7 @@ public class SampleControllerTests {
 		t.setGrade("AAA");
 
 		String jsonStr = new Gson().toJson(t);
-		log.info(jsonStr);
+		log.info("{}", jsonStr);
 
 		mockMvc.perform(post("/sample/ticket").contentType(MediaType.APPLICATION_JSON).content(jsonStr))
 				.andExpect(status().is(200));

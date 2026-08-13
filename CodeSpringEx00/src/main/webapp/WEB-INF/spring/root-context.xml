@@ -8,15 +8,19 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:property-placeholder system-properties-mode="OVERRIDE" />
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<!-- <property name="driverClassName"
 			value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="jdbcUrl"
-			value="jdbc:oracle:thin:@localhost:1521:XE"></property> -->
-		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
-		<property name="username" value="book_ex"></property>
-		<property name="password" value="book_ex"></property>
+			value="${DB_URL}"></property> -->
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
+		<property name="jdbcUrl" value="${DB_URL}"></property>
+		<!-- Allow the web tier to start while Oracle is temporarily unavailable. -->
+		<property name="initializationFailTimeout" value="-1" />
+		<property name="minimumIdle" value="0" />
+		<property name="username" value="${DB_USERNAME}"></property>
+		<property name="password" value="${DB_PASSWORD}"></property>
 	</bean>
 
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"

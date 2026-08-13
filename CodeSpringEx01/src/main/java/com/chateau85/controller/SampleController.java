@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,11 +23,11 @@ import com.chateau85.domain.SampleDTO;
 import com.chateau85.domain.SampleDTOList;
 import com.chateau85.domain.TodoDTO;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping("/sample/*")
-@Log4j
+@Slf4j
 public class SampleController {
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -36,12 +35,12 @@ public class SampleController {
 		binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(format, false));
 	}
 
-	@RequestMapping("")
+	@GetMapping("")
 	public void basic() {
 		log.info("basic.....................");
 	}
 
-	@RequestMapping(value = "/basic", method = { RequestMethod.GET, RequestMethod.POST })
+	@GetMapping("/basic")
 	public void basicGet() {
 		log.info("basic get.....................");
 	}

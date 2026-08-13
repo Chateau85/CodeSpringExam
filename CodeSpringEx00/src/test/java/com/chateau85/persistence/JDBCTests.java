@@ -7,9 +7,9 @@ import java.sql.DriverManager;
 
 import org.junit.Test;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
-@Log4j
+@Slf4j
 public class JDBCTests {
 	static {
 		try {
@@ -21,11 +21,19 @@ public class JDBCTests {
 
 	@Test
 	public void testConnection() {
-		try (Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "book_ex",
-				"book_ex")) {
-			log.info(con);
+		try (Connection con = DriverManager.getConnection(requiredEnvironment("DB_URL"),
+				requiredEnvironment("DB_USERNAME"), requiredEnvironment("DB_PASSWORD"))) {
+			log.info("{}", con);
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
+	}
+
+	private static String requiredEnvironment(String name) {
+		String value = System.getenv(name);
+		if (value == null || value.trim().isEmpty()) {
+			throw new IllegalStateException(name + " environment variable is required");
+		}
+		return value;
 	}
 }

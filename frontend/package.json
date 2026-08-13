@@ -1,0 +1,17 @@
+{
+  "name": "codespringexam-frontend-assets",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Reproducible frontend assets for the legacy Spring MVC examples",
+  "scripts": {
+    "sync": "node sync-assets.mjs",
+    "verify": "node verify-assets.mjs"
+  },
+  "dependencies": {
+    "jquery": "3.7.1",
+    "raphael": "2.3.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

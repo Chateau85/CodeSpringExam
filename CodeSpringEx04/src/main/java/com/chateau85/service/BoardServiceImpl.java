@@ -11,9 +11,9 @@ import com.chateau85.mapper.BoardMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
-@Log4j
+@Slf4j
 @Service
 @AllArgsConstructor
 public class BoardServiceImpl implements BoardService {
