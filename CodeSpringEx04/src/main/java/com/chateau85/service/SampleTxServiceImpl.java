@@ -8,10 +8,10 @@ import com.chateau85.mapper.Sample2Mapper;
 import com.chateau85.mapper.SampleMapper;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Log4j
+@Slf4j
 public class SampleTxServiceImpl implements SampleTxService {
 	@Setter(onMethod_ = { @Autowired })
 	private SampleMapper mapper1;

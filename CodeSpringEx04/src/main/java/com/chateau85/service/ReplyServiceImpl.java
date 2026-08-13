@@ -14,10 +14,10 @@ import com.chateau85.mapper.ReplyMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Log4j
+@Slf4j
 @AllArgsConstructor
 public class ReplyServiceImpl implements ReplyService {
 	@Setter(onMethod_ = @Autowired)

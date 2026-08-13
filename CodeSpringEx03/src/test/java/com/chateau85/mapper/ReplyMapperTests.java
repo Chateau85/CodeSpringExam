@@ -12,11 +12,11 @@ import com.chateau85.domain.Criteria;
 import com.chateau85.domain.ReplyVO;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-@Log4j
+@Slf4j
 public class ReplyMapperTests {
 	private Long[] bnoArr = { 15L, 14L, 13L, 12L, 11L };
 
@@ -38,7 +38,7 @@ public class ReplyMapperTests {
 //	public void testRead() {
 //		Long targetRno = 5L;
 //		ReplyVO vo = mapper.read(targetRno);
-//		log.info(vo);
+//		log.info("{}", vo);
 //	}
 //
 //	@Test
@@ -60,18 +60,18 @@ public class ReplyMapperTests {
 //	public void testList() {
 //		Criteria cri = new Criteria();
 //		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
-//		replies.forEach(reply -> log.info(reply));
+//		replies.forEach(reply -> log.info("{}", reply));
 //	}
-	
+
 	@Test
 	public void testList2() {
 		Criteria cri = new Criteria(2, 10);
 		List<ReplyVO> replies = mapper.getListWithPaging(cri, 10L);
-		replies.forEach(reply -> log.info(reply));
+		replies.forEach(reply -> log.info("{}", reply));
 	}
 
 	@Test
 	public void testMapper() {
-		log.info(mapper);
+		log.info("{}", mapper);
 	}
 }

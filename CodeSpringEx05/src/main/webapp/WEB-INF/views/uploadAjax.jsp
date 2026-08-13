@@ -14,9 +14,7 @@
 	</div>
 	<button id='uploadBtn'>Upload</button>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-		crossorigin="anonymous"></script>
+	<script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
 
 	<script>
 		$(document).ready(function() {
@@ -25,11 +23,11 @@
 
 			function checkExtension(fileName, fileSize) {
 				if (fileSize >= maxSize) {
-					alert("파일 사이즈 초과");
+					alert("?뚯씪 ?ъ씠利?珥덇낵");
 					return false;
 				}
 				if (regex.test(fileName)) {
-					alert("해당 종류의 파일은 업로드할 수 없습니다.");
+					alert("?대떦 醫낅쪟???뚯씪? ?낅줈?쒗븷 ???놁뒿?덈떎.");
 					return false;
 				}
 				return true;
@@ -49,7 +47,7 @@
 				}
 
 				$.ajax({
-					url : '/uploadAjaxAction',
+					url : '${pageContext.request.contextPath}/uploadAjaxAction',
 					processData : false,
 					contentType : false,
 					data : formData,

@@ -20,11 +20,11 @@ import com.chateau85.domain.ReplyVO;
 import com.chateau85.service.ReplyService;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @RequestMapping("/replies/")
 @RestController
-@Log4j
+@Slf4j
 @AllArgsConstructor
 public class ReplyController {
 	private ReplyService service;
@@ -44,7 +44,7 @@ public class ReplyController {
 //	public ResponseEntity<List<ReplyVO>> getList(@PathVariable("page") int page, @PathVariable("bno") Long bno) {
 //		log.info("getList........................");
 //		Criteria cri = new Criteria(page, 10);
-//		log.info(cri);
+//		log.info("{}", cri);
 //		return new ResponseEntity<List<ReplyVO>>(service.getList(cri, bno), HttpStatus.OK);
 //
 //	}

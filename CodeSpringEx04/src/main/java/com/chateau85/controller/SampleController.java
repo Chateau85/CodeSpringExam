@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chateau85.domain.SampleVO;
 import com.chateau85.domain.Ticket;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/sample")
-@Log4j
+@Slf4j
 public class SampleController {
 	@GetMapping(value = "/getText", produces = "text/plain; charset=UTF-8")
 	public String getText() {

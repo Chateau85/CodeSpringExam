@@ -12,18 +12,18 @@ import com.chateau85.domain.BoardVO;
 import com.chateau85.domain.Criteria;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-@Log4j
+@Slf4j
 public class BoardMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 
 	@Test
 	public void testGetList() {
-		mapper.getList().forEach(board -> log.info(board));
+		mapper.getList().forEach(board -> log.info("{}", board));
 	}
 
 	@Test
@@ -34,7 +34,7 @@ public class BoardMapperTests {
 		b.setWriter("newbie");
 
 		mapper.insert(b);
-		log.info(b);
+		log.info("{}", b);
 	}
 
 	@Test
@@ -45,13 +45,13 @@ public class BoardMapperTests {
 		b.setWriter("newbie");
 
 		mapper.insertSelectKey(b);
-		log.info(b);
+		log.info("{}", b);
 	}
 
 	@Test
 	public void testRead() {
 		BoardVO b = mapper.read(5L);
-		log.info(b);
+		log.info("{}", b);
 	}
 
 	@Test
@@ -77,7 +77,7 @@ public class BoardMapperTests {
 		cri.setPageNum(3);
 		cri.setAmount(10);
 		List<BoardVO> list = mapper.getListWithPaging(cri);
-		list.forEach(board -> log.info(board));
+		list.forEach(board -> log.info("{}", board));
 	}
 
 	@Test
@@ -86,6 +86,6 @@ public class BoardMapperTests {
 		cri.setKeyword("새로");
 		cri.setType("TC");
 		List<BoardVO> list = mapper.getListWithPaging(cri);
-		list.forEach(board -> log.info(board));
+		list.forEach(board -> log.info("{}", board));
 	}
 }

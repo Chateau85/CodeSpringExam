@@ -15,10 +15,10 @@ import com.chateau85.domain.PageDTO;
 import com.chateau85.service.BoardService;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Log4j
+@Slf4j
 @RequestMapping("/board/*")
 @AllArgsConstructor
 public class BoardController {

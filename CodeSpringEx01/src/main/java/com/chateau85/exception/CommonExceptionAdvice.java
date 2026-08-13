@@ -7,16 +7,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @ControllerAdvice
-@Log4j
+@Slf4j
 public class CommonExceptionAdvice {
 	@ExceptionHandler(Exception.class)
 	public String except(Exception ex, Model model) {
-		log.error("Exception ......." + ex.getMessage());
-		model.addAttribute("exception", ex);
-		log.error(model);
+		log.error("Unhandled request exception", ex);
+		model.addAttribute("errorMessage", "An unexpected error occurred. Please try again later.");
 		return "error_page";
 	}
 

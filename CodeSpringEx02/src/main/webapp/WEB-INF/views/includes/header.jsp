@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -305,4 +305,4 @@
 
 		<div id="page-wrapper">
 			<script
-				src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+				src="/resources/vendor/jquery/jquery.min.js"></script>

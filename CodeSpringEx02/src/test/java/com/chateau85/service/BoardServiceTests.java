@@ -12,18 +12,18 @@ import com.chateau85.domain.BoardVO;
 import com.chateau85.domain.Criteria;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-@Log4j
+@Slf4j
 public class BoardServiceTests {
 	@Setter(onMethod_ = { @Autowired })
 	private BoardService service;
 
 	@Test
 	public void testExist() {
-		log.info(service);
+		log.info("{}", service);
 		assertNotNull(service);
 	}
 
@@ -40,12 +40,12 @@ public class BoardServiceTests {
 
 	@Test
 	public void testGetLists() {
-		service.getList(new Criteria(2, 10)).forEach(board -> log.info(board));
+		service.getList(new Criteria(2, 10)).forEach(board -> log.info("{}", board));
 	}
 
 	@Test
 	public void testGet() {
-		log.info(service.get(1L));
+		log.info("{}", service.get(1L));
 	}
 
 	@Test
